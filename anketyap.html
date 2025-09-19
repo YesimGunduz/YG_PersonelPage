@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Anket Sayfası</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    background:#f4f4f9; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    min-height:100vh; 
+    margin:0; 
+    transition: background 0.3s; 
+  }
+
+  #survey { 
+    background:#fff; 
+    border-radius:10px; 
+    padding:20px 30px; 
+    max-width:700px; 
+    width:100%; 
+    box-shadow:0 2px 12px rgba(0,0,0,0.1); 
+  }
+
+  h2 { text-align:center; margin-bottom:20px; }
+  .question { margin-bottom:20px; }
+  .options-vertical { display:flex; flex-direction:column; gap:0.4rem; margin-top:8px; }
+  .option-inline { display:flex; align-items:center; gap:0.5rem; font-size:1rem; text-align:left; }
+  .option-inline input[type="radio"] { margin:0; }
+
+  button { 
+    display:block; 
+    width:100%; 
+    padding:12px; 
+    border:none; 
+    background:rgb(249, 126, 171); 
+    color:black; 
+    font-size:16px; 
+    border-radius:8px; 
+    cursor:pointer; 
+  }
+  button:hover { background:#fdfcfb; }
+
+  /* Modal */
+  #result-modal {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px); /* Arka planı bulanıklaştırır */
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+  }
+
+  #result-content {
+    background:#fff; 
+    padding:30px 25px; 
+    border-radius:12px;
+    max-width:500px; 
+    text-align:center; 
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    backdrop-filter: none; /* Modal net olsun */
+  }
+
+  #result-content h3 { color:#f95eaf; margin-bottom:1rem; }
+  #result-content p { font-size:1.1rem; color:#333; margin-bottom:1.5rem; }
+
+  .result-btn { 
+    margin:0.5rem; 
+    padding:10px 20px; 
+    border:none; 
+    border-radius:15px; 
+    cursor:pointer; 
+    font-weight:bold; 
+  }
+  .home-btn { background:#0a0a0a; color:#fff; }
+  .retry-btn { background:#040404; color:#fff; }
+  .home-btn:hover { background:#ffffff; color:#0a0a0a; }
+  .retry-btn:hover { background:#ffffff; color:#0a0a0a; }
+
+</style>
+</head>
+<body>
+<form id="survey">
+  <h2>Hadi Birlikte Ankete Katılalım!</h2>
+
+  <!-- Sorular 1-10 -->
+  <div class="question">
+    <label>1) Boş zamanlarınızda bilgisayarda en çok hangi aktiviteleri yaparsınız?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q1" value="Oyun"> Oyun oynamak</label>
+      <label class="option-inline"><input type="radio" name="q1" value="Kodlama"> Kodlama / Projeler</label>
+      <label class="option-inline"><input type="radio" name="q1" value="SosyalMedya"> Sosyal medya / İçerik üretimi</label>
+      <label class="option-inline"><input type="radio" name="q1" value="Video"> Video / Film izleme</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>2) Günlük bilgisayar başında geçirdiğiniz süre nedir?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q2" value="1saat"> 1 saatten az</label>
+      <label class="option-inline"><input type="radio" name="q2" value="1-3saat"> 1-3 saat</label>
+      <label class="option-inline"><input type="radio" name="q2" value="3-5saat"> 3-5 saat</label>
+      <label class="option-inline"><input type="radio" name="q2" value="5-8saat"> 5-8 saat</label>
+      <label class="option-inline"><input type="radio" name="q2" value="8uzeri"> 8 saatten fazla</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>3) Algoritma veya mantıksal problem çözme yeteneğinizi nasıl değerlendirirsiniz?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q3" value="CokIyi"> Çok iyi</label>
+      <label class="option-inline"><input type="radio" name="q3" value="Iyi"> İyi</label>
+      <label class="option-inline"><input type="radio" name="q3" value="Orta"> Orta</label>
+      <label class="option-inline"><input type="radio" name="q3" value="Az"> Az</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>4) Basit bir algoritma kurmanız istendiğinde ne kadar rahat yapabilirsiniz?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q4" value="CokRahat"> Çok rahat</label>
+      <label class="option-inline"><input type="radio" name="q4" value="Rahat"> Rahat</label>
+      <label class="option-inline"><input type="radio" name="q4" value="Orta"> Orta</label>
+      <label class="option-inline"><input type="radio" name="q4" value="Zor"> Zor</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>5) Programlama veya yazılım öğrenmeye ne kadar ilgi duyuyorsunuz?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q5" value="CokYuksek"> Çok yüksek</label>
+      <label class="option-inline"><input type="radio" name="q5" value="Yuksek"> Yüksek</label>
+      <label class="option-inline"><input type="radio" name="q5" value="Orta"> Orta</label>
+      <label class="option-inline"><input type="radio" name="q5" value="Dusuk"> Düşük</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>6) Daha önce algoritma veya problem çözme yarışmalarına katıldınız mı?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q6" value="Cok"> Evet, çok</label>
+      <label class="option-inline"><input type="radio" name="q6" value="Bazen"> Evet, bazen</label>
+      <label class="option-inline"><input type="radio" name="q6" value="Nadiren"> Nadiren</label>
+      <label class="option-inline"><input type="radio" name="q6" value="Hiç"> Hiç</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>7) Bir hata veya bug ile karşılaştığınızda çözme yaklaşımınız nedir?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q7" value="HemenCozum"> Hemen çözmeye çalışırım</label>
+      <label class="option-inline"><input type="radio" name="q7" value="DokumaniKontrol"> Doküman ve kaynakları kontrol ederim</label>
+      <label class="option-inline"><input type="radio" name="q7" value="ArkadasSorarim"> Arkadaş / mentor ile tartışırım</label>
+      <label class="option-inline"><input type="radio" name="q7" value="Beklerim"> Bir süre beklerim, sonra çözmeye çalışırım</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>8) Karmaşık bir programlama problemi ile karşılaştığınızda ne yaparsınız?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q8" value="ParcalaCoz"> Problemi parçalara ayırıp çözmeye çalışırım</label>
+      <label class="option-inline"><input type="radio" name="q8" value="Dokuman"> Önce doküman okurum</label>
+      <label class="option-inline"><input type="radio" name="q8" value="BaskaYontem"> Farklı yöntemler denerim</label>
+      <label class="option-inline"><input type="radio" name="q8" value="DenemeYanilma"> Deneme-yanılma yaparım</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>9) Yeni bir yazılım dili öğrenme motivasyonunuz nasıl?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q9" value="CokYuksek"> Çok yüksek</label>
+      <label class="option-inline"><input type="radio" name="q9" value="Yuksek"> Yüksek</label>
+      <label class="option-inline"><input type="radio" name="q9" value="Orta"> Orta</label>
+      <label class="option-inline"><input type="radio" name="q9" value="Dusuk"> Düşük</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>10) Kendi yazılım projelerinizi baştan sona tamamlayabilme yeteneğinizi nasıl değerlendirirsiniz?</label>
+    <div class="options-vertical">
+      <label class="option-inline"><input type="radio" name="q10" value="CokIyi"> Çok iyi</label>
+      <label class="option-inline"><input type="radio" name="q10" value="Iyi"> İyi</label>
+      <label class="option-inline"><input type="radio" name="q10" value="Orta"> Orta</label>
+      <label class="option-inline"><input type="radio" name="q10" value="Zayif"> Zayıf</label>
+    </div>
+  </div>
+
+  <button type="submit">Gönder</button>
+</form>
+
+<!-- Modal -->
+<div id="result-modal">
+  <div id="result-content">
+    <h3>Anket Sonucunuz</h3>
+    <p id="result-percentage"></p>
+    <p id="result-comment"></p>
+    <button class="result-btn home-btn" onclick="goHome()">Anasayfaya Dön</button>
+    <button class="result-btn retry-btn" onclick="retrySurvey()">Anketi Tekrar Yap</button>
+  </div>
+</div>
+
+<script>
+const totalQuestions = 10;
+const weights = {
+  "Oyun":5,"Kodlama":10,"SosyalMedya":4,"Video":3,
+  "1saat":2,"1-3saat":4,"3-5saat":6,"5-8saat":8,"8uzeri":10,
+  "CokIyi":10,"Iyi":7,"Orta":4,"Az":1,
+  "CokRahat":10,"Rahat":7,"Zor":3,
+  "CokYuksek":10,"Yuksek":7,"Dusuk":2,
+  "Cok":10,"Bazen":7,"Nadiren":4,"Hiç":1,
+  "HemenCozum":10,"DokumaniKontrol":7,"ArkadasSorarim":5,"Beklerim":2,
+  "ParcalaCoz":10,"BaskaYontem":7,"Dokuman":5,"DenemeYanilma":3,
+  "Zayif":2
+};
+
+document.querySelector("#survey").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  // Soruların tamamlandığını kontrol et
+  for (let i=1;i<=totalQuestions;i++){
+    if (!document.querySelector(`input[name="q${i}"]:checked`)){
+      showModal("Lütfen tüm soruları cevaplayın!","warning");
+      return false;
+    }
+  }
+
+  // Skoru hesapla
+  let score=0;
+  for (let i=1;i<=totalQuestions;i++){
+    let val = document.querySelector(`input[name="q${i}"]:checked`).value;
+    score += weights[val] || 5;
+  }
+  let percentage = Math.round(score/(totalQuestions*10)*100);
+
+  // Modern yorumlar
+  let comment="";
+  if (percentage>=90) comment="🚀 Harika! Yazılım geliştirme potansiyeliniz çok yüksek.";
+  else if (percentage>=80) comment="💪 Mükemmel! Algoritma ve problem çözme becerileriniz güçlü.";
+  else if (percentage>=70) comment="⭐ Çok iyi! Yazılıma yatkınlığınız yüksek, projeler yapın.";
+  else if (percentage>=60) comment="👍 İyi! Potansiyeliniz var, web teknolojileri ile başlayabilirsiniz.";
+  else if (percentage>=50) comment="📚 Orta seviye! Daha fazla pratik ile gelişebilirsiniz.";
+  else if (percentage>=40) comment="🌱 Gelişim alanı! Temel bilgisayar ve programlama bilgisi ile başlayın.";
+  else comment="🎯 Başlangıç seviyesi! Basit programlama araçları ile başlayın.";
+
+  // Sonuçları localStorage'a kaydet
+  localStorage.setItem('surveyPercentage', percentage);
+  localStorage.setItem('surveyComment', comment);
+  localStorage.setItem('surveyCompleted','true');
+
+  // Modal göster
+  document.getElementById("result-percentage").textContent = `Yatkınlık: ${percentage}%`;
+  document.getElementById("result-comment").textContent = comment;
+  document.getElementById("result-modal").style.display="flex";
+});
+
+function showModal(msg,type){
+  document.getElementById("result-percentage").textContent="";
+  document.getElementById("result-comment").textContent=msg;
+  document.getElementById("result-modal").style.display="flex";
+}
+
+function goHome(){
+  window.location.href="index.html";
+}
+function retrySurvey(){
+  window.location.href="survey.html";
+}
+</script>
+</body>
+</html>

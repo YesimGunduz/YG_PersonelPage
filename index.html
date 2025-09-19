@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yeşim Gündüz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo" onclick="location.href='#profile'">
+        <img src="yg.png" alt="Logo" />
+      </div>
+
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#experience">Deneyimlerim</a></li>
+          <li><a href="#yetkinlikler">Yetkinliklerim</a></li>
+          <li><a href="#projects">Projelerim</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo" onclick="location.href='#profile'">Yeşim Gündüz</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()"> Hakkında</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Deneyim</a></li>
+          <li>
+            <a href="#yetkinlikler" onclick="toggleMenu()">Yetkinlikler</a>
+          </li>
+          <li><a href="#projects" onclick="toggleMenu()">Projeler</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">İletişim</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="1.jpeg" alt="Yeşim_Gündüz_Resim" />
+      </div>
+      <div class="section__text">
+        <p class="section_text_p1"><span style="color: rgb(249, 93, 207);">Merhaba</span>,Ben</p>
+        <h1 class="title">Yeşim Gündüz</h1>
+          <p class="section_text_p2">Bilgisayar Mühendisi</p>
+          <p class="section_text_p3">Frontend Developer</p>
+        <div class="btn-container">
+          <div class="dropdown">
+            <button
+              class="btn btn-color-2 dropdown-toggle"
+              onclick="toggleCvMenu()"
+            >
+              CV İndir
+            </button>
+            <div id="cv-dropdown" class="dropdown-menu">
+              <a href="Yeşim Gündüz_CV.pdf" download>Turkish</a>
+              <a href="Yeşim GündüzCV_ENG.pdf" download>English</a>
+            </div>
+          </div>
+          <button class="btn btn-color-1" onclick="location.href='#contact'">
+            İletişim
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/yeşim-gündüz-4babb626a'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/YesimGunduz'"
+          />
+        </div>
+      </div>
+    </section>
+    
+    <!-- Aptitude CTA Section -->
+    <section id="aptitude-cta">
+      <h2 class="title" style="margin-bottom: 0.5rem;">Bilgisayar ve yazılıma ne kadar yatkınsın?</h2>
+      <p class="section_text_p1" style="text-align: center; margin-bottom: 1rem;">Merak ediyorsan hemen ankete katıl ve öğren!</p>
+      <div class="btn-container" style="margin-top: 0;">
+        <a href="anketyap.html" class="btn btn-color-1">Ankete Katıl</a>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section_text_p1 intro-strong">Hadi Beni Tanıyalım!</p>
+      <h1 class="title">Hakkımda</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img src="yg2.jpeg" alt="Profile picture" class="about-pic" />
+        </div>
+        <div class="about-details-container">
+          <div class="text-container">
+            <p>
+              Merhaba, ben <strong>Yeşim Gündüz</strong>. 2002 yılında
+              <strong>İzmir / Konak</strong>'ta doğdum. Ortaokul ve lise
+              eğitimimi İzmir'de, liseyi
+              <strong>Teğmen Ali Rıza Anadolu Lisesi</strong>'nde tamamladım.
+              Lisans eğitimimi
+              <strong
+                >Tokat Gaziosmanpaşa Üniversitesi Bilgisayar
+                Mühendisliği</strong
+              >
+              bölümünde bitirdim. Şu anda
+              <strong>Piri Academy'de gönüllü Game Designer</strong> olarak yer
+              alıyor; oyun tasarımı, oyuncu deneyimi ve yaratıcı problem çözme
+              alanlarında üretiyorum. <strong>İZSU</strong>'da gerçekleştirdiğim
+              staj ile kurumsal iş akışlarını yakından tanıdım ve teknik
+              yetkinliklerimi pekiştirdim. Sürekli öğrenmeye ve ekip çalışmasına
+              önem verir; yeni fırsat ve iş birliklerine açığım.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    
+    <section id="experience">
+      <p class="section_text_p1">Kazandığım Deneyimler</p>        
+      <h1 class="title">Deneyim</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">İZSU</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Stajyer Bilgisayar Mühendisi</h3>
+                  <p class="experience-duration">+3 Ay</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Piri Academy</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Game Designer</h3>
+                  <p class="experience-duration">Halen Devam Ediyor</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#yetkinlikler'"
+      />
+    </section>
+    
+    <section id="yetkinlikler">
+      <p class="section_text_p1 intro-strong">Teknik Yetkinliklerim</p>
+      <h1 class="title">Yetkinlikler</h1>
+      <div class="skills-container">
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <img src="./assets/education.png" alt="Programming" class="skill-icon" />
+              Programlama Dilleri
+            </h3>
+            <div class="skill-items">
+              <span class="skill-item">Python (TensorFlow, Keras)</span>
+              <span class="skill-item">Java</span>
+              <span class="skill-item">JavaScript</span>
+              <span class="skill-item">C#</span>
+              <span class="skill-item">SQL</span>
+              <span class="skill-item">PHP</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <img src="./assets/experience.png" alt="Database" class="skill-icon" />
+              Veritabanı Teknolojileri
+            </h3>
+            <div class="skill-items">
+              <span class="skill-item">MySQL</span>
+              <span class="skill-item">PostgreSQL</span>
+              <span class="skill-item">SQL Server</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <img src="./assets/github.png" alt="Development" class="skill-icon" />
+              Mobil & Web Geliştirme
+            </h3>
+            <div class="skill-items">
+              <span class="skill-item">Android Studio</span>
+              <span class="skill-item">ASP.NET</span>
+              <span class="skill-item">HTML</span>
+              <span class="skill-item">CSS</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <img src="./assets/checkmark.png" alt="Tools" class="skill-icon" />
+              Araçlar ve Teknolojiler
+            </h3>
+            <div class="skill-items">
+              <span class="skill-item">Git & GitHub</span>
+              <span class="skill-item">Visual Studio Code</span>
+              <span class="skill-item">Visual Studio</span>
+              <span class="skill-item">MAMP</span>
+              <span class="skill-item">Anaconda</span>
+              <span class="skill-item">Figma</span>
+              <span class="skill-item">Canva</span>
+              <span class="skill-item">Balsamiq Wireframes</span>
+              <span class="skill-item">Blender</span>
+              <span class="skill-item">Unity</span>
+              <span class="skill-item">MS Office</span>
+              <span class="skill-item">SQL Server Management</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="competencies-section">
+          <h3 class="competencies-title">Genel Yetkinlikler</h3>
+          <div class="competencies-text">
+            <p>Responsive tasarım ve kullanıcı arayüzü geliştirme, mobil uygulama geliştirme, sunucu oturum ve veri güvenliği yönetimi, yazılım geliştirme, proje yönetimi, takım çalışması, makine öğrenmesi ve temel derin öğrenme uygulamaları, veri analizi ve model eğitimi, yapay zeka (AI), Python ile TensorFlow, Keras, Scikit-learn gibi kütüphanelerin kullanımı, logo tasarımı, 3D modelleme ve animasyon, veri madenciliği, nesneye yönelik programlama (OOP), uzman sistemler, bilgi mühendisliği, SQL Server ve veritabanı yönetimi.</p>
+          </div>
+        </div>
+      </div>
+      
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    
+    <section id="projects">
+      <p class="section_text_p1 intro-strong">Projelerime Kısa Bir Göz Atalım!</p>
+      <h1 class="title">Projelerim</h1>
+      <div class="projects-container">
+        <div class="projects-carousel-wrapper">
+          <button class="carousel-btn left" onclick="previousProject()" aria-label="Önceki proje">
+            ‹
+          </button>
+          <div class="projects-carousel">
+            <!-- Projeler JavaScript ile dinamik olarak yüklenecek -->
+          </div>
+          <button class="carousel-btn right" onclick="nextProject()" aria-label="Sonraki proje">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!--
+      <p class="section_text_p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-1.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project One</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/YesimGunduz'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href=''https://github.com/YesimGunduz'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-2.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href=''https://github.com/YesimGunduz'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href=''https://github.com/YesimGunduz'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/project-3.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href=''https://github.com/YesimGunduz'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href=''https://github.com/YesimGunduz'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+      -->
+    </section>
+    <section id="contact">
+      <p class="section_text_p1 intro-strong">Benimle İletişime Geç!</p>
+      <h1 class="title">İletişim</h1>
+
+      <div class="contact-content">
+        <div class="contact-animation">
+          <lottie-player
+            src="./iletisim.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            style="width: 300px; height: 300px;"
+            onerror="handleLottieError(event)"
+          ></lottie-player>
+
+          <div class="contact-icon-fallback" style="display: none;">
+            <img src="./assets/email.png" alt="Contact Icon" style="width: 200px; height: 200px; opacity: 0.7;" />
+            <p style="margin-top: 1rem; font-size: 1.2rem; color: var(--color-primary);">İletişime Geçin</p>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <form
+            action="https://formspree.io/f/myzdoqpk"
+            method="POST"
+          >
+            <label for="fullname">Adınız Soyadınız:</label>
+            <input type="text" id="fullname" name="fullname" required />
+        
+            <label for="email">E-posta Adresiniz:</label>
+            <input type="email" id="email" name="email" required />
+        
+            <label for="subject">Konu Başlığı:</label>
+            <input type="text" id="subject" name="subject" />
+        
+            <label for="message">Mesajınız:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        
+            <button type="submit">Gönder</button>
+          </form>
+        </div>
+        
+        <div class="contact-info-lower-container">
+          <div class="contact-info-container">
+            <img
+              src="./assets/email.png"
+              alt="Email icon"
+              class="icon contact-icon email-icon"
+            />
+            <p>
+              <a href="mailto:yesimgunduz366@gmail.com"
+                >yesimgunduz366@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="contact-info-container">
+            <img
+              src="./assets/linkedin.png"
+              alt="LinkedIn icon"
+              class="icon contact-icon"
+            />
+            <p>
+              <a href="https://www.linkedin.com/in/yeşim-gündüz-4babb626a"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>Copyright &#169; 2025 Yeşim Gündüz. All Rights Reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Anket sonuçlarını kontrol et ve göster
+      document.addEventListener('DOMContentLoaded', function() {
+        const surveyCompleted = localStorage.getItem('surveyCompleted');
+        if (surveyCompleted === 'true') {
+          const percentage = localStorage.getItem('surveyPercentage');
+          const comment = localStorage.getItem('surveyComment');
+          
+          if (percentage && comment) {
+            document.getElementById('survey-percentage').textContent = `Yazılıma yatkınlık: ${percentage}%`;
+            document.getElementById('survey-comment').textContent = comment;
+            document.getElementById('survey-results').style.display = 'block';
+            
+            // Sonuçları gösterdikten sonra localStorage'ı temizle
+            localStorage.removeItem('surveyCompleted');
+            localStorage.removeItem('surveyPercentage');
+            localStorage.removeItem('surveyComment');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
